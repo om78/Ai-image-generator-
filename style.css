@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  /* color: #fff; */
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.image-generator {
+  height: 40vh;
+  background: url(./bg.jpg);
+  width: 100%;
+  object-fit: cover;
+  background-position: center;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+.image-generator::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.image-generator .content {
+  position: relative;
+  color: white;
+  padding: 0 15px;
+  max-width: 760px;
+  text-align: center;
+}
+.image-generator h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  /* white-space: nowrap; */
+}
+
+.image-generator p {
+  margin-top: 10px;
+  font-size: 1.3rem;
+}
+.generate-form {
+  height: 56px;
+  padding: 6px;
+  display: flex;
+  margin-bottom: 15px;
+  margin-top: 45px;
+  width: 100%;
+  border-radius: 30px;
+  justify-content: space-between;
+  background-color: white;
+  align-items: center;
+}
+.generate-form input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 17px;
+  border: none;
+  background-color: none;
+  font-size: 1rem;
+  border-radius: 30px;
+}
+.generate-form input::placeholder {
+  font-size: 1rem;
+}
+
+.img-quantity {
+  font-size: 16px;
+  border: 0;
+  font-weight: 400;
+  margin: 0 10px;
+  outline: 0;
+}
+.controls {
+  display: flex;
+  height: 100%;
+  grid-area: 15px;
+}
+.generate-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  color: white;
+  border: 0;
+  background: rgb(95, 87, 213);
+}
+.image-gallery {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 0 15px;
+  max-width: 1250px;
+  margin: 50px auto;
+  justify-content: center;
+  align-items: center;
+}
+.image-gallery .img-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 258px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  background: #f2f2f2;
+}
+
+.image-gallery .img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image-gallery .img-card.loading img {
+  width: 80px;
+  height: 80px;
+}
+.download-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: aliceblue;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.image-gallery .img-card:not(.loading):hover .download-btn {
+  display: flex;
+}
+.image-gallery .img-card .download-btn img {
+  width: 14px;
+  height: 14px;
+}
+@media screen and (max-width: 750px) {
+  .image-generator {
+    height: 45vh;
+    padding-top: 30px;
+    align-items: flex-start;
+  }
+  .image-generator h1 {
+    font-size: 1.8rem;
+  }
+  .image-generator p {
+    font-size: 1rem;
+  }
+  .image-generator .generate-form {
+    margin-top: 30px;
+    height: 52px;
+    display: block;
+  }
+  .controls {
+    height: 40px;
+    margin-top: 15px;
+    justify-content: end;
+    align-items: center;
+  }
+  .generate-btn[disabled] {
+    opacity: 1;
+  }
+  .img-quantity {
+    background: transparent;
+    color: #f2f2f2;
+  }
+  .image-gallery {
+    margin-top: 20px;
+  }
+  .image-gallery .img-card:not(.loading) .download-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  .image-gallery .img-card {
+    width: 100%;
+  }
+  .img-quantity {
+    background: transparent;
+    color: #f2f2f2;
+  }
+}
